@@ -8,20 +8,15 @@ from curriculum_test.crew import CurriculumTest
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
 
 def run():
     """
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'module_topic': 'Introduction to Javascript Arrays',
+        'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed.'
     }
-    
     try:
         CurriculumTest().crew().kickoff(inputs=inputs)
     except Exception as e:
@@ -33,7 +28,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'module_topic': 'Introduction to Javascript Arrays',
     }
     try:
         CurriculumTest().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -56,8 +51,8 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
+        'module_topic': 'Introduction to Javascript Arrays',
+        'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed.'
     }
     try:
         CurriculumTest().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
