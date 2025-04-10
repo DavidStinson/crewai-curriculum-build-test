@@ -1,17 +1,77 @@
-research_task:
+generate_module_outline:
+  agent: instructional_architect
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    As the Senior Instructional Architect, your primary task is to generate a detailed module outline for a
+    technical (with coding) or non-technical module. You must follow the provided "Outline Structure & Content
+    Guidelines" meticulously. This includes creating sections for the Instructor Read-Only Overview & Agenda,
+    Learner Persona and Prerequisites, High-Level and Detailed Learning Objectives, individual Microlesson
+    structures (Title, Learning Objective, Theory, Activity, Instructor Speaker Notes & Knowledge Checks),
+    Assessment and Evaluation Strategies, and Resources and Supplementary Materials.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Your process should involve the following steps, informed by the "List of Questions to Prompt the User for
+    Necessary Information" and the provided {module_topic} and {learner_persona}:
+
+    1.  **Generate Module Title:** Based on the {module_topic}, create a clear and engaging title for the module.
+
+    2.  **Gather and Infer Necessary Information:** Identify the key pieces of information required to create a
+        comprehensive outline by referencing the provided list of questions. Utilize the provided
+        {module_topic} and {learner_persona} to infer relevant details, such as potential prerequisites,
+        learning preferences, and real-world applications. You may also need to consider other provided variables
+        like {learning_objectives} if available.
+
+    3.  **Determine Microlesson Titles and Content Focus:** Based on the {module_topic} and the inferred needs of
+        the {learner_persona}, determine the appropriate number of microlessons and generate descriptive and
+        logical titles for each. For each microlesson, outline the key theoretical concepts to be covered and
+        brainstorm engaging and remote-friendly hands-on activities. Consider how these activities can be
+        facilitated (e.g., via VS Code, online whiteboards).
+
+    4.  **Structure the Outline:** Organize the generated and inferred content according to the "Outline Structure
+        & Content Guidelines," ensuring all sections are included and logically ordered.
+
+    5.  **Populate Each Section:** Fill each section with relevant and detailed information. Pay close attention to
+        the specific requirements for each subsection (e.g., formatting of learning objectives, inclusion of time
+        estimates for microlessons, specifying deliverables for activities, etc.).
+
+    6.  **Incorporate Best Practices:** Ensure the outline reflects the best practices outlined, such as emphasizing
+        clear learning objectives, concise theory, engaging hands-on activities, and flexible Knowledge Checks. For
+        technical modules (inferred from the {module_topic}), remember to consider elements like potential VS Code
+        demos and coding examples.
+
+    7.  **Consider Customization:** Be mindful of whether the module is likely technical or non-technical (based on
+        the {module_topic}) and adjust the "Activity" and "Theory" sections accordingly.
+
+    Use the example provided ("Module Outline: Introduction to JavaScript Arrays") as a template for technical
+    modules to ensure the inclusion of relevant elements.
+
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A comprehensive module outline in Markdown format, structured according to the provided "Outline Structure &
+    Content Guidelines." The outline should include the following sections with detailed content:
+
+    -   **Instructor Read-Only Overview & Agenda:**
+        -   Overview: A brief summary of the module's purpose and structure.
+        -   Agenda: A list of **generated** microlesson titles with estimated times in "[ ]".
+    -   **Learner Persona and Prerequisites:**
+        -   Learner Persona: A description of the target audience (using the provided {learner_persona}).
+        -   Prerequisites: A list of required skills or knowledge (inferred based on {module_topic} and
+            {learner_persona}).
+    -   **Learning Objectives and Outcomes:**
+        -   High-Level Learning Goal: A sentence stating the module's main purpose (generated based on
+            {module_topic}).
+        -   Detailed Learning Objectives: A bulleted list of "Learners will be able to..." statements (to be
+            defined in subsequent tasks, but the outline should indicate where these will go).
+    -   **Module Structure: Microlessons:**
+        -   For each **generated** microlesson:
+            -   Title: With estimated time in "[ ]".
+            -   Learning Objective: A placeholder "To be defined" or a very high-level objective related to the title.
+            -   Theory: A brief outline of the key concepts.
+            -   Activity: A preliminary idea for a hands-on exercise, deliverable, and a potential Discussion Prompt.
+            -   Instructor Speaker Notes & Knowledge Checks: Initial thoughts on instructor guidance.
+    -   **Assessment and Evaluation Strategies:**
+        -   Description of formative assessments (Knowledge Checks via chat, live VS Code reviews - if applicable).
+        -   Explanation of the module debrief and reflection session.
+    -   **Resources and Supplementary Materials:**
+        -   Required Tools: List of necessary software (inferred if possible).
+        -   Supplementary Materials: Initial ideas for relevant resources.
+
+    The outline should be well-organized and provide a foundational structure for developing the module content, with
+    generated titles and preliminary content ideas based on the provided {module_topic} and {learner_persona}.
