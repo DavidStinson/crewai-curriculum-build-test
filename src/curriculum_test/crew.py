@@ -10,7 +10,7 @@ text_sources_instructional_architect = TextFileKnowledgeSource(
 
 text_sources_learning_experience_designer = TextFileKnowledgeSource(
     file_paths=["creating-clear-exercises.txt",
-                "markdown-document-structure.txt", "modular-code.txt", "modular-writing.txt", "technical-voice.txt"]
+                "markdown-document-structure.txt", "modular-code.txt", "modular-writing.txt", "technical-voice.txt", "creating-inclusive-and-globally-relevant-content.txt"]
 )
 
 claude_sonnet = LLM(

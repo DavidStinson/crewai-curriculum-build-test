@@ -230,6 +230,13 @@ learning_design_task:
         `markdown-document-structure.txt`, making the content visually appealing and easy to follow. Use formatting
         to highlight relatable examples and key takeaways.
 
+    7. **IMPORTANT - Craft globally relevant content:** ensure that the content 
+       is relevant to a global audience. Avoid using american-centric 
+       examples or references that may not resonate with learners from
+       different cultural backgrounds. Use examples that are universally 
+       relatable and applicable to a diverse audience. Refrain from using idioms
+       or colloquial expressions that may not translate well across cultures. Use the `creating-inclusive-and-globally-relevant-content.txt` document to help with this.
+
   expected_output: >
     An enriched Markdown document that builds upon the content provided by the subject_matter_expert. This document
     should feature a more narrative flow, clearly highlighted relatable examples and analogies, strategically placed
@@ -237,10 +244,10 @@ learning_design_task:
     microlesson, the output should include:
 
     * **Learning Objective:** (Carried over from the SME's content)
-    * **Enriched Theory:**
+    * **Theory:**
         * Integration of narrative elements and real-world scenarios.
         * Inclusion of relatable examples and analogies to clarify complex concepts.
-    * **Enhanced Activity:**
+    * **Activity:**
         * Modifications to emphasize practical application and real-world relevance.
         * Strategically embedded interactive elements and discussion prompts.
         * Clear Deliverable.

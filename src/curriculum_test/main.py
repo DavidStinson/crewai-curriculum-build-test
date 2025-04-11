@@ -18,7 +18,7 @@ def run():
     # Inputs dictionary
     inputs = {
         'module_topic': 'Introduction to Javascript Arrays',
-        'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed.',
+        'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed. Students are adult learners and aspiring professionals.',
         'learning_objectives': (
             "Learners will be able to define JavaScript arrays and explain how they organize data.\n\n"
             "Learners will be able to identify the components of an array, including its elements and index positions.\n\n"
@@ -29,8 +29,18 @@ def run():
         'tools': 'VSCode',
     }
 
+    non_technical_inputs = {
+        'module_topic': 'Introduction to Typography',
+        'learner_persona': 'Little to no prior experience. Students are adult learners who are in a 420-hour UX Design program and aspiring professionals.',
+        'learning_objectives': (
+            'Identify the different aspects of typography to apply them to your designs.\n\n'
+            'Make type choices to highlight hierarchy and the importance of elements in your design.\n\n'
+        ),
+        'tools': '',
+    }
+
     try:
-        crew_output = CurriculumTest().crew().kickoff(inputs=inputs)
+        crew_output = CurriculumTest().crew().kickoff(inputs=non_technical_inputs)
         print(f"Tokens used: {crew_output.token_usage}")
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
