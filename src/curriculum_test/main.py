@@ -50,9 +50,11 @@ def run():
     }
 
     try:
-        CurriculumTest().crew().kickoff(inputs=inputs)
+        crew_output = CurriculumTest().crew().kickoff(inputs=inputs)
+        print(f"Tokens used: {crew_output.token_usage}")
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
+
 
 
 def train():
