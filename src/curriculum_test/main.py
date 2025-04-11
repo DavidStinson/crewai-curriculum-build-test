@@ -14,25 +14,6 @@ def run():
     """
     Run the crew.
     """
-    base_path = os.path.join(os.path.dirname(__file__), '..', '..', 'inputs')
-
-    # Paths to both input files
-    instructions_path = os.path.join(
-        base_path, 'custom_outline_instructions.txt')
-    philosophy_path = os.path.join(
-        base_path, 'general_assembly_learning_philosophy.txt')
-
-    try:
-        with open(instructions_path, 'r', encoding='utf-8') as f:
-            custom_outline_instructions = f.read()
-    except FileNotFoundError:
-        raise Exception(f"Could not find file at: {instructions_path}")
-
-    try:
-        with open(philosophy_path, 'r', encoding='utf-8') as f:
-            general_assembly_learning_philosophy = f.read()
-    except FileNotFoundError:
-        raise Exception(f"Could not find file at: {philosophy_path}")
 
     # Inputs dictionary
     inputs = {
@@ -45,8 +26,7 @@ def run():
             "Learners will be able to access and modify elements within an array using square brackets.\n\n"
             "Learners will be able to use basic array methods, such as push() and pop(), to manage array data."
         ),
-        'custom_outline_instructions': custom_outline_instructions,
-        'general_assembly_learning_philosophy': general_assembly_learning_philosophy
+        'tools': 'VSCode',
     }
 
     try:
@@ -54,7 +34,6 @@ def run():
         print(f"Tokens used: {crew_output.token_usage}")
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
-
 
 
 def train():
