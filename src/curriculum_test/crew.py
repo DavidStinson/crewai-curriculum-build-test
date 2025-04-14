@@ -4,8 +4,7 @@ from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledge
 
 # Create a text file knowledge source
 text_sources_instructional_architect = TextFileKnowledgeSource(
-    file_paths=["custom_outline_instructions.txt",
-                "general_assembly_learning_philosophy.txt"]
+    file_paths=["general_assembly_learning_philosophy.txt"]
 )
 
 text_sources_learning_experience_designer = TextFileKnowledgeSource(

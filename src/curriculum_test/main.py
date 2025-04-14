@@ -18,11 +18,11 @@ def run():
         'module_topic': 'This JavaScript Arrays module is designed to provide a comprehensive introduction to arrays, a fundamental list datatype in programming. The module concludes with an extended practical exercise where learners will create, modify, and iterate through an array of strings. This content is suitable for beginners who are relatively new to JavaScript programming.',
         'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed. Students are adult learners and aspiring professionals.',
         'learning_objectives': (
-            "Learners will be able to define JavaScript arrays and explain how they organize data.\n\n"
-            "Learners will be able to identify the components of an array, including its elements and index positions.\n\n"
-            "Learners will be able to create arrays using JavaScript literal notation in VS Code.\n\n"
-            "Learners will be able to access and modify elements within an array using square brackets.\n\n"
-            "Learners will be able to use basic array methods, such as push() and pop(), to manage array data."
+            "Define JavaScript arrays and explain how they organize data.\n\n"
+            "Identify the components of an array, including its elements and index positions.\n\n"
+            "Create arrays using JavaScript literal notation in VS Code.\n\n"
+            "Access and modify elements within an array using square brackets.\n\n"
+            "Use basic array methods, such as push() and pop(), to manage array data."
         ),
         'tools': 'VSCode',
     }
