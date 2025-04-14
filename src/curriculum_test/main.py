@@ -14,7 +14,8 @@ def run():
 
     # Inputs dictionary
     inputs = {
-        'module_topic': 'Introduction to Javascript Arrays',
+        'module_title': 'Introduction to Javascript Arrays',
+        'module_topic': 'This JavaScript Arrays module is designed to provide a comprehensive introduction to arrays, a fundamental list datatype in programming. The module concludes with an extended practical exercise where learners will create, modify, and iterate through an array of strings. This content is suitable for beginners who are relatively new to JavaScript programming.',
         'learner_persona': 'Little to no prior coding experience; basic computer literacy is assumed. Students are adult learners and aspiring professionals.',
         'learning_objectives': (
             "Learners will be able to define JavaScript arrays and explain how they organize data.\n\n"
@@ -27,6 +28,7 @@ def run():
     }
 
     non_technical_inputs = {
+        'module_title': 'Introduction to Typography',
         'module_topic': 'Introduction to Typography',
         'learner_persona': 'Little to no prior experience. Students are adult learners who are in a 420-hour UX Design program and aspiring professionals.',
         'learning_objectives': (
