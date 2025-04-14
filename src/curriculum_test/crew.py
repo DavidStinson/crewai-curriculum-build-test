@@ -18,6 +18,16 @@ claude_sonnet = LLM(
     max_tokens=8192
 )
 
+chatgpt_45 = LLM(
+    model="gpt-4.5-preview",
+    max_tokens=8192,
+)
+
+openai_o3mini = LLM(
+    model="o3-mini",
+    max_tokens=8192,
+)
+
 
 @CrewBase
 class CurriculumTest():
@@ -51,7 +61,7 @@ class CurriculumTest():
         return Agent(
             config=self.agents_config['learning_experience_designer'],
             verbose=True,
-            llm=claude_sonnet,
+            llm=openai_o3mini,
             knowledge_sources=[text_sources_learning_experience_designer]
         )
 

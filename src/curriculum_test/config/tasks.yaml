@@ -237,13 +237,16 @@ learning_design_task:
        relatable and applicable to a diverse audience. Refrain from using idioms
        or colloquial expressions that may not translate well across cultures. Use the `creating-inclusive-and-globally-relevant-content.txt` document to help with this.
 
+    8. **IMPORTANT - Ensure that no content is lost from the SME's
+       content.** The SME's content should be the foundation of the final output. Your task is to **REFINE** the SME output, not cut any of the content provided by the SME. **DO NOT** summarize or cut any of the SME's content, **ONLY** modify it.
+
   expected_output: >
     An enriched Markdown document that builds upon the content provided by the subject_matter_expert. This document
     should feature a more narrative flow, clearly highlighted relatable examples and analogies, strategically placed
     interactive elements, and a strong emphasis on practical application for **all** microlessons. For each
     microlesson, the output should include:
 
-    * **Learning Objective:** (Carried over from the SME's content)
+    * **Learning Objective:** (Identical to the SME's content)
     * **Theory:**
         * Integration of narrative elements and real-world scenarios.
         * Inclusion of relatable examples and analogies to clarify complex concepts.

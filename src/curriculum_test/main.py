@@ -1,9 +1,6 @@
 #!/usr/bin/env python
-import os
 import sys
 import warnings
-
-from datetime import datetime
 
 from curriculum_test.crew import CurriculumTest
 
@@ -40,7 +37,7 @@ def run():
     }
 
     try:
-        crew_output = CurriculumTest().crew().kickoff(inputs=non_technical_inputs)
+        crew_output = CurriculumTest().crew().kickoff(inputs=inputs)
         print(f"Tokens used: {crew_output.token_usage}")
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
