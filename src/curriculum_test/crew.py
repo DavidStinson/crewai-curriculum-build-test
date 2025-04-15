@@ -1,6 +1,9 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
+import litellm
+
+litellm._turn_on_debug()
 
 # Create a text file knowledge source
 text_sources_instructional_architect = TextFileKnowledgeSource(
@@ -17,8 +20,8 @@ claude_sonnet = LLM(
     max_tokens=8192
 )
 
-chatgpt_45 = LLM(
-    model="gpt-4.5-preview",
+chatgpt_41 = LLM(
+    model="gpt-4.1",
     max_tokens=8192,
 )
 
@@ -44,7 +47,8 @@ class CurriculumTest():
             config=self.agents_config['instructional_architect'],
             verbose=True,
             llm=claude_sonnet,
-            knowledge_sources=[text_sources_instructional_architect]
+            knowledge_sources=[text_sources_instructional_architect],
+            cache=False
         )
 
     @agent
@@ -52,7 +56,8 @@ class CurriculumTest():
         return Agent(
             config=self.agents_config['subject_matter_expert'],
             verbose=True,
-            llm=claude_sonnet
+            llm=chatgpt_41,
+            cache=False
         )
 
     @agent
@@ -60,14 +65,15 @@ class CurriculumTest():
         return Agent(
             config=self.agents_config['learning_experience_designer'],
             verbose=True,
-            llm=openai_o3mini,
-            knowledge_sources=[text_sources_learning_experience_designer]
+            llm=claude_sonnet,
+            knowledge_sources=[text_sources_learning_experience_designer],
+            cache=False
         )
 
     @task
     def generate_module_outline_task(self) -> Task:
         return Task(
-            config=self.tasks_config['generate_module_outline'],
+            config=self.tasks_config['generate_module_outline']
         )
 
     @task
@@ -88,10 +94,15 @@ class CurriculumTest():
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
-        return Crew(
+        my_crew = Crew(
             agents=self.agents,  # Automatically created by the @agent decorator
             tasks=self.tasks,  # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            output_log_file="./output/crew_log.md",
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
+
+        my_crew.reset_memories(command_type = "all")
+
+        return my_crew
